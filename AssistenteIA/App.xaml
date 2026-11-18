@@ -1,0 +1,67 @@
+<Application x:Class="AssistenteIA.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!-- Paleta de cores -->
+            <SolidColorBrush x:Key="CorPrimaria" Color="#4F46E5"/>
+            <SolidColorBrush x:Key="CorTextoSuave" Color="#6B7280"/>
+            <SolidColorBrush x:Key="CorBorda" Color="#E5E7EB"/>
+
+            <BooleanToVisibilityConverter x:Key="BoolParaVisibilidade"/>
+
+            <!-- Rótulo de seção da barra lateral -->
+            <Style x:Key="Rotulo" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="#374151"/>
+                <Setter Property="Margin" Value="0,18,0,6"/>
+            </Style>
+
+            <!-- Botão principal -->
+            <Style x:Key="BotaoBase" TargetType="Button">
+                <Setter Property="Background" Value="{StaticResource CorPrimaria}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Padding" Value="18,9"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Fundo"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="8"
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Fundo" Property="Opacity" Value="0.85"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="Fundo" Property="Opacity" Value="0.4"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Botão secundário (barra lateral) -->
+            <Style x:Key="BotaoSecundario" TargetType="Button" BasedOn="{StaticResource BotaoBase}">
+                <Setter Property="Background" Value="#EEF0F4"/>
+                <Setter Property="Foreground" Value="#1F2937"/>
+                <Setter Property="FontWeight" Value="Normal"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="Margin" Value="0,0,0,8"/>
+            </Style>
+
+            <!-- Botão de parar -->
+            <Style x:Key="BotaoPerigo" TargetType="Button" BasedOn="{StaticResource BotaoBase}">
+                <Setter Property="Background" Value="#DC2626"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
