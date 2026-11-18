@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>AssistenteIA</RootNamespace>
+    <AssemblyName>AssistenteIA</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Abstrações oficiais de IA do .NET (IChatClient, AIFunction, ChatOptions...) -->
+    <PackageReference Include="Microsoft.Extensions.AI" Version="10.11.0" />
+    <!-- Conector para a OpenAI (nuvem) que implementa IChatClient -->
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.11.0" />
+    <!-- Cliente do Ollama (IA local) que também implementa IChatClient -->
+    <PackageReference Include="OllamaSharp" Version="5.5.2" />
+  </ItemGroup>
+
+</Project>
